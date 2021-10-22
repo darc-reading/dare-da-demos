@@ -1,0 +1,4 @@
+name: dare-da-notebooks
+dependencies:
+- python=3.9
+- scipy
