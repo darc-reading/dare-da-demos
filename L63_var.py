@@ -183,7 +183,7 @@ def var4d(x0,t,tobs,anawin,y,H,B,R,model,N,xtol_in):
         #    taux,xaaux = lorenz96(o2t*anawin*tstep_truth,xa0,N)
 
         x_a[j*o2t*anawin:(j+1)*o2t*anawin+1,:] = xaaux
-        print('t =', tobs[anawin*(j+1)])
+        #print('t =', tobs[anawin*(j+1)])
 
     return x_b,x_a
 
