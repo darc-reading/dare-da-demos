@@ -48,7 +48,7 @@ def get_background_function(bg_type, x):
 
 st.title('Optimal interpolation demonstration')
 st.subheader('Introduction')
-st.markdown('In this applet, we perform data assimilation in order to '
+st.markdown('In this interactive demo, we perform data assimilation in order to '
             'estimate the values of a function over the interval [0,10]. '
             'A simple data assimilation scheme, called _optimal interpolation_, '
             'is used. We do not focus on the details of the scheme, but recap '
@@ -59,9 +59,7 @@ st.markdown('In this applet, we perform data assimilation in order to '
 st.markdown('The exercises explore two ideas:\n')
 st.markdown(' 1. the effect of the uncertainty in the observations on the analysis;')
 st.markdown(' 2. how the information from observations is spread to the unobserved variables.')
-st.markdown('Choose the shape of the background function from the drop-down list, and set '
-            'the location and the values of two observations using the sliders below. '
-            'You can accept the defaults shown here to begin with.')
+
 
 # TODO: obs and background are uncertain but are taken here to have the same uncertainty
 
@@ -77,36 +75,41 @@ a  = np.zeros(xdim) # analysis for 2 obs case
 a1 = np.zeros(xdim) # analysis for o1 only case
 a2 = np.zeros(xdim) # analysis for o2 only case
 
-st.subheader("Set shape of background function")
-bg_func = st.selectbox(
-    'Flat, linear or sine wave',
-    ('Flat', 'Linear', 'Sine wave')
-)
-fb = get_background_function(bg_func, x)
+with st.sidebar:
+    st.subheader("Instructions")
+    st.markdown('_(NOTE: You may have to wait a few seconds for the data assimilation to be performed '
+                'after changing the parameter values.)_')
+    st.markdown('Choose the shape of the background function from the drop-down list, and set '
+            'the location and the values of two observations using the sliders below. '
+            'You can accept the defaults shown here to begin with.')
+    st.subheader("Set shape of background function")
+    bg_func = st.selectbox(
+        'Flat, linear or sine wave',
+        ('Flat', 'Linear', 'Sine wave')
+    )
+    fb = get_background_function(bg_func, x)
 
-st.subheader("Set observation values and locations")
-# default observation values and locations
-x1 = st.slider('First observation location', 0, 4, 1)
-o1 = st.slider('First observation value', 0.0, 1.0, 0.4, 0.2)
-x2 = st.slider('Second observation location', 5, 10, 7)
-o2 = st.slider('Second observation value', -1.0, 0.0, -0.6, 0.2)
+    st.subheader("Set observation values and locations")
+    # default observation values and locations
+    x1 = st.slider('First observation location', 0, 4, 1)
+    o1 = st.slider('First observation value', 0.0, 1.0, 0.4, 0.2)
+    x2 = st.slider('Second observation location', 5, 10, 7)
+    o2 = st.slider('Second observation value', -1.0, 0.0, -0.6, 0.2)
 
-st.subheader("Set uncertainty of observations")
-st.markdown('We address the role of uncertainty by choosing different standard deviations '
-            'for the observation error using the slider. What happens when the observations '
-            'are assumed to be perfect and hence the standard deviation is set to zero? '
-            'Increase the standard deviation incrementally until you reach the maximum '
-            'value and observe how the analysis changes and compares to the background. '
-            '_(You may have to wait a few seconds for the data assimilation to be performed '
-            'after changing the parameter values.)_')
-sigo = st.slider('Observation error standard deviation', 0.0, 1.0, 0.1, 0.1)
+    st.subheader("Set uncertainty of observations")
+    st.markdown('We address the role of uncertainty by choosing different standard deviations '
+                'for the observation error using the slider. What happens when the observations '
+                'are assumed to be perfect and hence the standard deviation is set to zero? '
+                'Increase the standard deviation incrementally until you reach the maximum '
+                'value and observe how the analysis changes and compares to the background. ')
+    sigo = st.slider('Observation error standard deviation', 0.0, 1.0, 0.1, 0.1)
 
-st.subheader("Set background correlation length scale")
-st.markdown('To experiment with the spread of information to unobserved variables, change '
-            'the background error correlation length scale. At which locations is the '
-            'analysis different from the background? How does this change when the correlation '
-            'length scale is increased or decreased?')
-Lf = st.slider('Background correlation length scale', 0.0, 2.0, 1.0, 0.2)
+    st.subheader("Set background correlation length scale")
+    st.markdown('To experiment with the spread of information to unobserved variables, change '
+                'the background error correlation length scale. At which locations is the '
+                'analysis different from the background? How does this change when the correlation '
+                'length scale is increased or decreased?')
+    Lf = st.slider('Background correlation length scale', 0.0, 2.0, 1.0, 0.2)
 
 # default covariances and correlation lengths
 # forecast (background)
@@ -165,7 +168,7 @@ plt.ylim(-1.2, 1.2)
 
 st.subheader("Plot")
 st.markdown('Experiment using different background functions and observation parameters '
-            'using the above controls and guidance.')
+            'using controls and guidance in the left-hand sidebar.')
 st.write(fig)
 
 st.subheader("Conclusions")
