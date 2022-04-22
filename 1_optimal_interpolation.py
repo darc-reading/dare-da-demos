@@ -56,9 +56,26 @@ st.markdown('In this interactive demo, we perform data assimilation in order to 
             'the _background_, _observations_, _error covariances_, and '
             '_observation operator_.')
 
-st.markdown('The exercises explore two ideas:\n')
-st.markdown(' 1. the effect of the uncertainty in the observations on the analysis;')
-st.markdown(' 2. how the information from observations is spread to the unobserved variables.')
+st.markdown('The exercises explore two ideas:')
+st.markdown('1. the effect of the uncertainty in the observations on the analysis')
+st.markdown('2. how the information from observations is spread to the unobserved variables.')
+
+st.subheader("Instructions")
+st.markdown('Use the selection boxes and sliders in the left-hand control panel to adjust parameter values. '
+            'The plot will automatically update, although you might have to wait a few seconds '
+            'after changing a parameter value.')
+st.markdown('Choose the shape of the background function from the drop-down list, and set '
+            'the location and the values of two observations using the sliders.')
+st.markdown('We address the role of uncertainty by choosing different standard deviations '
+            'for the observation error using the slider. What happens when the observations '
+            'are assumed to be perfect and hence the standard deviation is set to zero? '
+            'Increase the standard deviation incrementally until you reach the maximum '
+            'value and observe how the analysis changes and compares to the background.')
+st.markdown('To experiment with the spread of information to unobserved variables, change '
+            'the background error correlation length scale. At which locations is the '
+            'analysis different from the background? How does this change when the correlation '
+            'length scale is increased or decreased?')
+
 
 
 # TODO: obs and background are uncertain but are taken here to have the same uncertainty
@@ -76,39 +93,22 @@ a1 = np.zeros(xdim) # analysis for o1 only case
 a2 = np.zeros(xdim) # analysis for o2 only case
 
 with st.sidebar:
-    st.subheader("Instructions")
-    st.markdown('_(NOTE: You may have to wait a few seconds for the data assimilation to be performed '
-                'after changing the parameter values.)_')
-    st.markdown('Choose the shape of the background function from the drop-down list, and set '
-            'the location and the values of two observations using the sliders below. '
-            'You can accept the defaults shown here to begin with.')
-    st.subheader("Set shape of background function")
+
+    st.header("Controls")
+
     bg_func = st.selectbox(
-        'Flat, linear or sine wave',
+        'Background function shape',
         ('Flat', 'Linear', 'Sine wave')
     )
     fb = get_background_function(bg_func, x)
 
-    st.subheader("Set observation values and locations")
-    # default observation values and locations
     x1 = st.slider('First observation location', 0, 4, 1)
     o1 = st.slider('First observation value', 0.0, 1.0, 0.4, 0.2)
     x2 = st.slider('Second observation location', 5, 10, 7)
     o2 = st.slider('Second observation value', -1.0, 0.0, -0.6, 0.2)
 
-    st.subheader("Set uncertainty of observations")
-    st.markdown('We address the role of uncertainty by choosing different standard deviations '
-                'for the observation error using the slider. What happens when the observations '
-                'are assumed to be perfect and hence the standard deviation is set to zero? '
-                'Increase the standard deviation incrementally until you reach the maximum '
-                'value and observe how the analysis changes and compares to the background. ')
     sigo = st.slider('Observation error standard deviation', 0.0, 1.0, 0.1, 0.1)
 
-    st.subheader("Set background correlation length scale")
-    st.markdown('To experiment with the spread of information to unobserved variables, change '
-                'the background error correlation length scale. At which locations is the '
-                'analysis different from the background? How does this change when the correlation '
-                'length scale is increased or decreased?')
     Lf = st.slider('Background correlation length scale', 0.0, 2.0, 1.0, 0.2)
 
 # default covariances and correlation lengths
@@ -166,15 +166,12 @@ plt.legend()
 plt.xlim(0, 10)
 plt.ylim(-1.2, 1.2)
 
-st.subheader("Plot")
-st.markdown('Experiment using different background functions and observation parameters '
-            'using controls and guidance in the left-hand sidebar.')
 st.write(fig)
 
 st.subheader("Conclusions")
-st.markdown('We performed simple data assimilation experiments changing the uncertainty '
-            'in observation, and the background error correlation length scale. Small '
+st.markdown('We performed simple data assimilation experiments, changing the observation '
+            'uncertainty and the background error correlation length scale. A small '
             'observation uncertainty draws the analysis closer to observations, whereas '
-            'large observation uncertainty means that the analysis is similar to the '
-            'background. Small correlation length scale indicates that changes in one '
+            'large observation uncertainty means that the analysis is more similar to the '
+            'background. A small correlation length scale indicates that changes in one '
             'variable affect only the variables that are close to it.')
