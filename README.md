@@ -1,11 +1,15 @@
 # Demonstrators for DARE data assimiliation course
 
 ## Interactive demonstrators
- 1. Optimal interpolation (Link TODO)
- 2. [Other demonstrators](https://mybinder.org/v2/gh/darc-reading/dare-da-notebooks/HEAD) (opens with Binder, may take a while to load)
+Demonstrators using Binder may take a few minutes to load when first used.
+ * Optimal interpolation (Link TODO) - uses [Streamlit](https://streamlit.io)
+ * [2.1. Variational data assimilation (3D vs 4D)](https://mybinder.org/v2/gh/darc-reading/dare-da-notebooks/HEAD?labpath=2-1_variational_activity-3D_vs_4D_var_single_obs.ipynb) - uses Binder
+ * [2.2. Variational data assimilation (window length)](https://mybinder.org/v2/gh/darc-reading/dare-da-notebooks/HEAD?labpath=2-2_variational_activity_4D-var_assimilation_window.ipynb) - uses Binder
+ * [3.1 Ensemble Kalman Filter (ensemble size)](https://mybinder.org/v2/gh/darc-reading/dare-da-notebooks/HEAD?labpath=3-1_ensemble_activity_ensemble_size.ipynb) - uses Binder
+ * [3.2 Ensemble Kalman Filter (observation localisation)](https://mybinder.org/v2/gh/darc-reading/dare-da-notebooks/HEAD?labpath=3-2_ensemble_activity_observation_localisation.ipynb) - uses Binder
 
 ## Static demonstrators
-Click here to open the notebooks in nbviewer for static notebooks:
+If for any reason the above interactive demonstrators don't work, you can view a read-only version of the demonstrators using the following links:
  * [1. Optimal interpolation demo](https://nbviewer.org/github/darc-reading/dare-da-notebooks/blob/main/analysis_2obs.ipynb)
  * [2.1. Variational data assimilation (3D vs 4D)](https://nbviewer.org/github/darc-reading/dare-da-notebooks/blob/main/2-1_variational_activity-3D_vs_4D_var_single_obs.ipynb)
  * [2.2. Variational data assimilation (window length)](https://nbviewer.org/github/darc-reading/dare-da-notebooks/blob/main/2-2_variational_activity_4D-var_assimilation_window.ipynb)
