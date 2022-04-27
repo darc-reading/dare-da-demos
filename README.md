@@ -2,7 +2,7 @@
 
 ## Interactive demonstrators
 Demonstrators using Binder may take a few minutes to load when first used.
- * Optimal interpolation (Link TODO) - uses [Streamlit](https://streamlit.io)
+ * [1. Optimal interpolation](https://share.streamlit.io/darc-reading/dare-da-demos/main/1_optimal_interpolation.py) - uses [Streamlit](https://streamlit.io)
  * [2.1. Variational data assimilation (3D vs 4D)](https://mybinder.org/v2/gh/darc-reading/dare-da-demos/HEAD?labpath=2-1_variational_activity-3D_vs_4D_var_single_obs.ipynb) - uses Binder
  * [2.2. Variational data assimilation (window length)](https://mybinder.org/v2/gh/darc-reading/dare-da-demos/HEAD?labpath=2-2_variational_activity_4D-var_assimilation_window.ipynb) - uses Binder
  * [3.1 Ensemble Kalman Filter (ensemble size)](https://mybinder.org/v2/gh/darc-reading/dare-da-demos/HEAD?labpath=3-1_ensemble_activity_ensemble_size.ipynb) - uses Binder
@@ -10,8 +10,13 @@ Demonstrators using Binder may take a few minutes to load when first used.
 
 ## Static demonstrators
 If for any reason the above interactive demonstrators don't work, you can view a read-only version of the demonstrators using the following links:
- * [1. Optimal interpolation demo](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/analysis_2obs.ipynb)
+ * [1. Optimal interpolation](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/analysis_2obs.ipynb)
  * [2.1. Variational data assimilation (3D vs 4D)](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/2-1_variational_activity-3D_vs_4D_var_single_obs.ipynb)
  * [2.2. Variational data assimilation (window length)](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/2-2_variational_activity_4D-var_assimilation_window.ipynb)
  * [3.1 Ensemble Kalman Filter (ensemble size)](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/3-1_ensemble_activity_ensemble_size.ipynb)
  * [3.2 Ensemble Kalman Filter (observation localisation)](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/3-2_ensemble_activity_observation_localisation.ipynb)
+
+## Download and run the code locally
+You may also download or clone the code from this repository to run it in your local Python environment. You can install the dependencies with `pip install -r requirements.txt`.
+
+To run the Optimal Interpolation demo using Streamlit, install the dependencies and run `streamlit run 1_optimal_interpolation.py`. This should open the app in your browser.
