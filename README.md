@@ -1,4 +1,5 @@
 # Demonstrators for DARE data assimiliation course
+This repository contains Python code with a set of demonstrations of data assimilation techniques. This code accompanies the DARE data assimilation online course (TODO: insert link to this here).
 
 ## Interactive demonstrators
 Demonstrators using Binder may take a few minutes to load when first used.
@@ -9,8 +10,7 @@ Demonstrators using Binder may take a few minutes to load when first used.
  * [3.2 Ensemble Kalman Filter (observation localisation)](https://mybinder.org/v2/gh/darc-reading/dare-da-demos/HEAD?labpath=3-2_ensemble_activity_observation_localisation.ipynb) - uses Binder
 
 ## Static demonstrators
-If for any reason the above interactive demonstrators don't work, you can view a read-only version of the demonstrators using the following links:
- * [1. Optimal interpolation](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/analysis_2obs.ipynb)
+If for any reason the above interactive demonstrators don't work, you can view a online, read-only version of the demonstrators using the following links:
  * [2.1. Variational data assimilation (3D vs 4D)](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/2-1_variational_activity-3D_vs_4D_var_single_obs.ipynb)
  * [2.2. Variational data assimilation (window length)](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/2-2_variational_activity_4D-var_assimilation_window.ipynb)
  * [3.1 Ensemble Kalman Filter (ensemble size)](https://nbviewer.org/github/darc-reading/dare-da-demos/blob/main/3-1_ensemble_activity_ensemble_size.ipynb)

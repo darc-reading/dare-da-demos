@@ -30,6 +30,7 @@ def soar2(x1, x2, L):
 
 @st.cache
 def get_background_function(bg_type, x):
+    '''Returns three diffrent options for the background function.'''
 
     if bg_type == 'Flat':
         return np.zeros(len(x))
@@ -77,9 +78,6 @@ st.markdown('To experiment with the spread of information to unobserved variable
             'length scale is increased or decreased?')
 
 
-
-# TODO: obs and background are uncertain but are taken here to have the same uncertainty
-
 # set x values at which equations are solved
 x0 = 0.
 xn = 10.
@@ -111,19 +109,15 @@ with st.sidebar:
 
     Lf = st.slider('Background correlation length scale', 0.0, 2.0, 1.0, 0.2)
 
-# default covariances and correlation lengths
-# forecast (background)
+# These parameters are not adjustable via the Streamlit widgets
 sigf = 0.2 # background error standard deviation
-#Lf   = 0.2 # correlation length scale
-# observations
-#sigo = 0.2 # observation error standard deviation
 Lo   = 0.0 # correlation length scale
 
 # get value of background field at observation locations, Hxb
 
 # Create a function that estimates the background at any point
 # by interpolating linearly between the given background points
-Hfb = interpolate.interp1d(x, fb, 'linear') # This will always be zero since fb=0 everywhere
+Hfb = interpolate.interp1d(x, fb, 'linear')
 
 # Compute y-Hxb at each obs location
 d1 = o1 - Hfb(x1)
@@ -151,11 +145,12 @@ cf2 = np.array([soar2(xi, x2, Lf) for xi in x]) # rho(x,x2), (xdim x 1) vector
 z = cf1*(d1-C*d2)+cf2*(d2-C*d1);   
   
 a  = fb + W*z        # analysis for 2 obs case
+# If you want, you can re-enable the calculation of the analysis with only one observation
+# by uncommenting the following two lines
 #a1 = fb + cf1*W1*d1  # analysis for o1 only
 #a2 = fb + cf2*W1*d2  # analysis for o2 only
 
 # Plot the data
-# TODO: error bars for obs and shading for background?
 fig = plt.figure()
 plt.errorbar([x1, x2], [o1, o2], [sigo, sigo], marker='o', linestyle='None', label="Observations")  # observation locations
 plt.plot(x, a, 'r--', label="Analysis")        # analysis in red dashed line
