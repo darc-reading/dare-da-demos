@@ -2,7 +2,7 @@
 import numpy as np
 from scipy.linalg import pinv
 from scipy.optimize import fmin, fsolve
-from L63_model import lorenz63
+from .L63_model import lorenz63
 
 ###############################################################################
 def var3d(x0,t,tobs,y,H,B,R,model,N):

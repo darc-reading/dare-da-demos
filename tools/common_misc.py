@@ -121,8 +121,8 @@ def rmse_spread(xt,xmean,Xens,anawin):
 
 
 ##############################################################################
-from L63_model import lorenz63
-from L96_model import lorenz96
+from .L63_model import lorenz63
+from .L96_model import lorenz96
 
 def getBsimple(model,N):
     """A very simple method to obtain the background error covariance.

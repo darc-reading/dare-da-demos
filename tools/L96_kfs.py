@@ -1,7 +1,7 @@
 # 2017 JA
 import numpy as np
 from scipy.linalg import pinv, sqrtm
-from L96_model import lorenz96
+from .L96_model import lorenz96
 
 def kfs_lor96(x0_t,t,tobs,y,H,R,rho,M,met,lam,loctype):
  """Data assimilation for Lorenz 1996 using Ensemble Kalman Filters.
