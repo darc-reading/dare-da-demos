@@ -20,3 +20,6 @@ If for any reason the above interactive demonstrators don't work, you can view a
 You may also download or clone the code from this repository to run it in your local Python environment. You can install the dependencies with `pip install -r requirements.txt`.
 
 To run the Optimal Interpolation demo using Streamlit, install the dependencies and run `streamlit run 1_optimal_interpolation.py`. This should open the app in your browser.
+
+## Acknowledgements
+This code has been created by  authors from the [Data Assimilation Research Centre](https://research.reading.ac.uk/met-darc/) (DARC) at the [University of Reading](https://www.reading.ac.uk), funded in part by the [Data Assimilation for the REsilient City](https://research.reading.ac.uk/dare/) (DARE) project (EPSRC EP/P002331/1) and the NERC [National Centre for Earth Observation](https://www.nceo.ac.uk) (NCEO).
