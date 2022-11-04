@@ -1,5 +1,5 @@
 # Demonstrators for DARE data assimiliation course
-This repository contains Python code with a set of demonstrations of data assimilation techniques. This code accompanies the DARE data assimilation online course (TODO: insert link to this here).
+This repository contains Python code with a set of demonstrations of data assimilation techniques. This code accompanies the DARE data assimilation online course (https://discoverda.org/).
 
 ## Interactive demonstrators
 Note that demonstrators may take a few minutes to load when first used.
